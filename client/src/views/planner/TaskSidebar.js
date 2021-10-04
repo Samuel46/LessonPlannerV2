@@ -1,7 +1,11 @@
 // ** React Imports
 import { useState, Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addLesson, updateLesson } from "../../redux/actions/lessonActions";
+import {
+  addLesson,
+  deleteLesson,
+  updateLesson,
+} from "../../redux/actions/lessonActions";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 
@@ -29,7 +33,7 @@ import "@styles/react/libs/flatpickr/flatpickr.scss";
 // ** Modal Header
 const ModalHeader = (props) => {
   // ** Props
-  const { handleTaskSidebar, children, important, setImportant } = props;
+  const { handleTaskSidebar, children, important, setImportant, on } = props;
 
   // ** Function to delete task
   const handleDeleteTask = () => {};
@@ -38,12 +42,6 @@ const ModalHeader = (props) => {
     <div className="modal-header d-flex align-items-center justify-content-between mb-1">
       <h5 className="modal-title">{children}</h5>
       <div className="todo-item-action d-flex align-items-center">
-        <Trash
-          className="cursor-pointer mt-25"
-          size={16}
-          onClick={() => handleDeleteTask()}
-        />
-
         <span className="todo-item-favorite cursor-pointer mx-75"></span>
         <X
           className="font-weight-normal mt-25"

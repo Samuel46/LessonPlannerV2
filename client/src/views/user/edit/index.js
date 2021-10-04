@@ -12,6 +12,7 @@ import Loader from "../../../components/Loader";
 // ** Store & Actions
 import { getTeacherDetail } from "../../../redux/actions/teacherActions";
 import { useSelector, useDispatch } from "react-redux";
+import Spinner from "@components/spinner/Fallback-spinner";
 
 // ** Third Party Components
 import { User, Info, Share2 } from "react-feather";
@@ -85,7 +86,7 @@ const UserEdit = () => {
       </Row>
     </>
   ) : (
-    <Loader />
+    <Spinner />
   );
 };
 export default UserEdit;

@@ -83,17 +83,21 @@ const CardAppDesign = ({
           <Row>
             <Col md="6"></Col>
             <Col md="6">
-              <div className="todo-item-action d-flex align-items-center">
-                <Trash
-                  className="cursor-pointer  mb-20"
-                  size={16}
-                  onClick={() => dispatch(deleteLesson(lesson._id))}
-                />
+              <Button.Ripple
+                color="lighter-3"
+                className="text-left"
+                onClick={() => dispatch(deleteLesson(lesson._id))}
+              >
+                <div className="todo-item-action d-flex align-items-left">
+                  <span className="todo-item-favorite cursor-pointer mx-75"></span>
 
-                <span className="todo-item-favorite cursor-pointer mx-75">
-                  <Star size={16} />
-                </span>
-              </div>
+                  <Trash
+                    className="cursor-pointer  mb-20 text-danger"
+                    size={27}
+                    onClick={() => dispatch(deleteLesson(lesson._id))}
+                  />
+                </div>
+              </Button.Ripple>
             </Col>
           </Row>
           <Button.Ripple

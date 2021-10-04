@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // ** Custom Components
 import Avatar from "@components/avatar";
+import Spinner from "@components/spinner/Fallback-spinner";
 import { deleteTeacher } from "../../../redux/actions/teacherActions";
 // import Moment from 'react-moment';
 // ** Third Party Components
@@ -67,7 +68,7 @@ const UserInfoCard = () => {
           >
             {error && <Message variant="danger">{error}</Message>}
 
-            {loading && <Loader />}
+            {loading && <Spinner />}
             <div className="user-avatar-section">
               <div className="d-flex justify-content-start">
                 {renderUserImg()}

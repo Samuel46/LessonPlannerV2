@@ -1,6 +1,7 @@
 // ** React Imports
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import Spinner from "@components/spinner/Fallback-spinner";
 
 // ** Store & Actions
 import { useSelector, useDispatch } from "react-redux";
@@ -42,7 +43,7 @@ const UserView = (props) => {
       <Row></Row>
     </div>
   ) : (
-    <Loader />
+    <Spinner />
   );
 };
 export default UserView;

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUserPassword } from "../../redux/actions/userActions";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
+import Spinner from "@components/spinner/Fallback-spinner";
 
 const PasswordTabContent = ({ user: { data } }) => {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -32,7 +33,7 @@ const PasswordTabContent = ({ user: { data } }) => {
       <Form onSubmit={updatePasswordHandler}>
         {/* {<Message variant="danger">{message}</Message>}
         {error && <Message variant="danger">{error}</Message>} */}
-        {loading && <Loader />}
+        {loading && <Spinner />}
 
         <Row>
           <Col sm="6">

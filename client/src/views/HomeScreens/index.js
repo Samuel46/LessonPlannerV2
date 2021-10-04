@@ -1,7 +1,5 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import { Row, Col } from "reactstrap";
-import { ThemeColors } from "@src/utility/context/ThemeColors";
-import StatsCard from "@src/views/ui-elements/cards/statistics/StatsCard";
 import { toast, Slide } from "react-toastify";
 import Avatar from "@components/avatar";
 import "@styles/react/libs/charts/apex-charts.scss";
@@ -13,6 +11,7 @@ import Welcome from "./Welcome";
 import Stats from "./Stats";
 import { getTeacherDetails } from "../../redux/actions/teacherActions";
 import { getLessonDetails } from "../../redux/actions/lessonActions";
+import Spinner from "@components/spinner/Fallback-spinner";
 
 const ToastContent = ({ name, role }) => (
   <Fragment>
@@ -61,7 +60,7 @@ const EcommerceDashboard = () => {
 
   // get login user info
   const userDetails = useSelector((state) => state.userDetails);
-  const { user } = userDetails;
+  const { user, loading: userloading } = userDetails;
 
   // get teachers
   const teacherDetails = useSelector((state) => state.teacherDetails);
@@ -81,7 +80,9 @@ const EcommerceDashboard = () => {
     );
   }, []);
 
-  return (
+  return (loading && loading) || (userloading && userloading) ? (
+    <Spinner />
+  ) : (
     <div id="dashboard-ecommerce">
       <Row className="match-height">
         <Col xl="12" md="12" xs="12">

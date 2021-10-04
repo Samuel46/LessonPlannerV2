@@ -7,6 +7,7 @@ import "@styles/react/apps/app-users.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getTeacherDetails } from "../../../redux/actions/teacherActions";
 import Loader from "../../../components/Loader";
+import Spinner from "@components/spinner/Fallback-spinner";
 
 import "@styles/react/libs/tables/react-dataTable-component.scss";
 
@@ -22,7 +23,7 @@ const UsersList = () => {
   console.log(user && user);
 
   return loading !== false ? (
-    <Loader />
+    <Spinner />
   ) : (
     <div className="app-user-list">
       <Table user={user} />

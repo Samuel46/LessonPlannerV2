@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import Avatar from "@components/avatar";
 import Message from "../../components/Message";
-import Loader from "../../components/Loader";
+import Spinner from "@components/spinner/Fallback-spinner";
 
 const GeneralTabs = ({ user: { data } }) => {
   // const [userinfo, setUserInfo] = useState(data);
@@ -82,7 +82,7 @@ const GeneralTabs = ({ user: { data } }) => {
       </Media>
       <Form className="mt-2" onSubmit={updateHandler} method="PUT">
         {error && <Message variant="danger">{error}</Message>}
-        {loading && <Loader />}
+        {loading && <Spinner />}
         <Row>
           <Col sm="6">
             <FormGroup>
